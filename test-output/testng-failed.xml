@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [SuiteName]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.amex.automation.testcases.Test001P">
+        <methods>
+          <include name="test002"/>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- com.amex.automation.testcases.Test001P -->
+      <class name="com.amex.automation.testcases.AppTest">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="test002"/>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- com.amex.automation.testcases.AppTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [SuiteName] -->

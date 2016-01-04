@@ -1,0 +1,103 @@
+<suite name="Test Suite for TVE" parallel="classes" thread-count="1" preserve-order="true">
+
+    <!--TARGET APPLICATION options: americanexpress,amexcreditcard-->
+    <parameter name="ApplicationName" value="http://americanexpress.com"></parameter>
+    <parameter name="Platform" value="Mac"></parameter> <!-- Windows,Mac etc. -->
+    
+    
+    <!--RUNTIME CONFIG-->
+    
+    <parameter name="BuildEnvironment" value="uat"></parameter> <!-- qa, stage, uat, prod -->
+    <parameter name="VersionBranch" value="Master"></parameter> <!-- master, etc -->
+    <parameter name="AppVersionNumber" value="Latest"></parameter>
+    <parameter name="ReRunOnFailure" value="false"></parameter>
+    <parameter name="ReRunOnFailureCount" value="1"></parameter>
+    <parameter name="UploadReportToJIRA" value="false"></parameter>
+    <parameter name="UploadReportToDropBox" value="false"></parameter>
+    <parameter name="SendSlackReport" value="false"></parameter>
+    <parameter name="UpdateIndividualRallyTCs" value="false"></parameter>
+    <parameter name="SendReportAutoEmails" value="true"></parameter>
+    <parameter name="IncludeZipReportInAutoEmails" value="true"></parameter>
+    <parameter name="SendReportEmailAddress" value="your email address"></parameter>
+   
+    
+    <!--APP CONFIG-->
+    
+    
+    <!--REPORT CONFIG-->
+    
+    <parameter name="IncludeCharlesLogs" value="false"></parameter>
+    <parameter name="PathToTestDataConfig" value="/src/test/resources/TestDataConfig.json"></parameter>
+    <parameter name="PathToTestDataConfig_platforms" value="/src/test/resources/TestDataConfig_Platforms.json"></parameter>
+    <parameter name="PathToReports" value="/test-output/reports/"></parameter>
+    <parameter name="PathToScreenshots" value="/test-output/screenshots/"></parameter>
+    <parameter name="PathToTempLogs" value="/test-output/templogs/"></parameter>
+    <parameter name="PathToCharlesLogs" value="/test-output/charleslogs/"></parameter>
+    <parameter name="PathToCharlesFailureLogs" value="/test-output/charlesfailurelogs/"></parameter>
+    <parameter name="TempLogMaxFileSize" value="500"></parameter>
+    <parameter name="ScreenshotMaxFileSize" value="500"></parameter>
+    
+    <!--SLACK CONFIG-->
+   
+
+    <!--3RD PARTY APP CONFIG-->
+    <parameter name="RallyUsername" value="your user name"></parameter>
+    <parameter name="RallyPassword" value=""></parameter>
+    <parameter name="RallyUrl" value="https://rally1.rallydev.com"></parameter>
+    <parameter name="JIRAUsername" value=""></parameter>
+    <parameter name="JIRAPassword" value=""></parameter>
+    <parameter name="JIRAUrl" value=""></parameter>
+    <parameter name="JIRAIssueReportId" value="NUNI-1061"></parameter>
+    <parameter name="GmailUsername" value=""></parameter>
+    <parameter name="GmailPassword" value=""></parameter>
+    
+    <parameter name="DropBoxUsername" value=""></parameter>
+    <parameter name="DropBoxPassword" value=""></parameter>
+    <parameter name="DropBoxAccessToken" value=""></parameter>
+    <parameter name="DropBoxUploadURL" value="https://www.dropbox.com/home/Apps/AutomationReportUploader"></parameter>  
+    
+    <!--WEBDRIVER WAIT CONFIG-->
+    <parameter name="ImplicitWaitTime" value="0"></parameter> <!-- Seconds -->
+    <parameter name="WaitForWaitTime" value="10"></parameter> <!-- Seconds -->
+    <parameter name="PollingTime" value="1000"></parameter> <!-- Milliseconds >= 1000 -->
+    <parameter name="FeaturePagePause" value="2"></parameter> <!-- Seconds -->
+    <parameter name="InteractAttempts" value="2"></parameter> <!-- Number of attempts to make on interactions -->
+    <parameter name="ServerCommandTimeout" value="120"></parameter> <!-- Seconds < 180 second grid timeout -->
+    <parameter name="DriverRecyclePause" value="3000"></parameter> <!-- Milliseconds > than node recycle -->
+    <parameter name="SmallPause" value="1000"></parameter> <!-- Milliseconds -->
+    <parameter name="MediumPause" value="2000"></parameter> <!-- Milliseconds -->
+    <parameter name="LargePause" value="3000"></parameter> <!-- Milliseconds -->
+    
+    <!--WEBDRIVER HUB CONFIG-->
+    <parameter name="RemoteWebDriverHubPort" value="4445"></parameter>
+
+    <!--LISTENERS-->
+    <listeners>
+        <listener class-name="" />
+        <listener class-name="" />
+        <listener class-name="" />
+        <listener class-name="" />
+    </listeners>
+      
+    <!--TEST EXECUTION QUEUE-->
+    <test verbose="1" name="All Mobile Tests" annotations="JDK">
+
+        <!-- TEST GROUPS 
+        "Full" - every test in the suite. 
+        "Broken" - those tests that are broken and safe to ignore until they can be resolved. 
+        -->
+        
+        <groups>
+            <run>
+                <include name="Full" />
+                <exclude name="Broken" />
+            </run>
+        </groups>
+        
+        <packages>
+            <package name="com.amex.automation.testcases.*" />
+        </packages>
+       
+    </test>
+    
+</suite>

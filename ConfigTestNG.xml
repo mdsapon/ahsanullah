@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="SuiteName">
+    
+    <test name="Test" allow-return-values="true">
+        <classes>
+            <class name="com.amex.automation.testcases.AppTest" />
+            <class name="com.amex.automation.testcases.Test001P" />
+        </classes>
+    </test>
+</suite>
